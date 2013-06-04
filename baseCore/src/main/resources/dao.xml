@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	
+	<context:property-placeholder location="${CFG_HOME}/jdbc.properties" ignore-unresolvable="true" />
+	
+	 <bean id="dataSourceBaseDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driver_basedb}"/>
+        <property name="url" value="${url_basedb}"/>
+        <property name="username" value="${user_basedb}"/>
+        <property name="password" value="${password_basedb}"/>
+    </bean>
+    
+    <tx:annotation-driven/>
+
+	<bean id="sqlSessionFactoryBaseDb" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBaseDB" />
+	</bean>
+
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceBaseDB" />
+	</bean>
+	
+	<bean id="tSeqMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lch.base.basedb.data.TSeqMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBaseDb" />
+	</bean>
+	
+	<bean id="tUserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lch.base.basedb.data.TUserMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBaseDb" />
+	</bean>
+	
+	<bean id="tRoleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lch.base.basedb.data.TRoleMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBaseDb" />
+	</bean>
+	
+	<bean id="tUserRoleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lch.base.basedb.data.TUserRoleMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBaseDb" />
+	</bean>
+	
+	<bean id="tLogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lch.base.basedb.data.TLogMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBaseDb" />
+	</bean>
+	
+</beans>

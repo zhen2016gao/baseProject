@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <security:debug />
+
+   <!--  <security:global-method-security pre-post-annotations="enabled" /> -->
+   <!-- <security:global-method-security >
+    	<security:protect-pointcut access="ROLE_SUPER" expression="execution(* com.lch.web.controller.*Controller.*(..))"/>
+    </security:global-method-security> -->
+   
+
+    <security:http pattern="/css/**" security="none"/>
+    <security:http pattern="/js/**" security="none"/>
+    <security:http pattern="/login.jsp" security="none"/>
+
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/**" access="isAuthenticated()" />
+        <security:form-login login-page="/login.jsp" default-target-url="/main.html" login-processing-url="/login.html" always-use-default-target="true" username-parameter="username" password-parameter="password"/>
+        <security:logout logout-success-url="/login.jsp" logout-url="/logout.html" delete-cookies="JSESSIONID"/>
+        <security:remember-me />
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userDetailsService">
+        	<security:password-encoder ref="passwordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    
+    <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
+        <constructor-arg value="MD5"/>
+    </bean>
+	
+	<bean id="userDetailsService" class="com.lch.security.service.impl.UserDetailsServiceImpl">
+		<property name="userDbService" ref="userDbService"/>
+		<property name="userRoleDbService" ref="userRoleDbService"/>
+	</bean>
+
+</beans>

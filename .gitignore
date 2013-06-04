@@ -4,3 +4,14 @@
 *.jar
 *.war
 *.ear
+
+/baseCore/.classpath
+
+/baseCore/*.project
+
+/baseCore/.settings
+
+/baseCore/src/main/java/META-INF
+/baseWEB/*.classpath
+
+/baseWEB/*.project
