@@ -8,10 +8,10 @@
 <%@include file="include.jsp"%>
 <script type="text/javascript">
     function open1(plugin, url){
-        if ($('#tt').tabs('exists', plugin)){
-            $('#tt').tabs('select', plugin);
+        if ($('#layout_center_tabs').tabs('exists', plugin)){
+            $('#layout_center_tabs').tabs('select', plugin);
             var tab = $('#tt').tabs('getSelected');
-            $('#tt').tabs('update', {
+            $('#layout_center_tabs').tabs('update', {
             	 tab: tab,
                  options: {
                 	 title:plugin,
@@ -20,7 +20,7 @@
             });
             
         } else {
-        	$('#tt').tabs('add',{
+        	$('#layout_center_tabs').tabs('add',{
                 title:plugin,
                 content: '<iframe src="'+ url+ '" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe>',
                 closable:true,
@@ -62,16 +62,17 @@
     
 	$(document).ready(function () {
 	    
-		$('#tt').tabs('add',{
+		$('#layout_center_tabs').tabs('add',{
 	        title:'首页',
 	        content: '<iframe src="firstPage.html" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe>',
-	        closable:true,
+	        closable:false,
 	        extractor:function(data){
 	            return data;
 	        }
 	    });
 	});
 </script>
+<script type="text/javascript" src="<c:url value="/js/closePlugin.js"/>"></script>
 </head>
 <body class="easyui-layout" style="text-align: left">
 	<div data-options="region:'north'" style="background: #666; text-align: center">
@@ -119,7 +120,19 @@
 
 	<div data-options="region:'south',border:false" style="height: 50px; background: #A9FACD; padding: 10px;">CopyRight：lch</div>
 	<div data-options="region:'center'">
-		<div id="tt" class="easyui-tabs" fit="true" border="false" plain="true"></div>
+		<div id="layout_center_tabs" class="easyui-tabs" fit="true" border="false" plain="true" data-options="fit:true,border:false"></div>
 	</div>
+	
+	<!-- <div id="layout_center_tabs" class="easyui-tabs" data-options="fit:true,border:false" style="overflow: hidden;">  
+    <div title="首页"></div>  
+</div>   -->
+  
+<div id="layout_center_tabsMenu" style="width: 120px;display:none;">  
+    <div type="refresh">刷新</div>  
+    <div class="menu-sep"></div>  
+    <div type="close">关闭</div>  
+    <div type="closeOther">关闭其他</div>  
+    <div type="closeAll">关闭所有</div>  
+</div>  
 </body>
 </html>
