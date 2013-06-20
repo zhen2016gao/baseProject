@@ -25,11 +25,7 @@ import com.lch.base.basedb.service.TLogDbService;
 import com.lch.log.Log;
 import com.lch.utils.DateUtils;
 import com.lch.web.bean.LogVO;
-/**
- * 日志管理模块
- * @author wangxiaowei
- *
- */
+
 @Controller
 public class LogController {
 	@Resource

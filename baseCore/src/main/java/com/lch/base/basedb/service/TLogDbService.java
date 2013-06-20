@@ -6,11 +6,6 @@ import java.util.Map;
 import com.lch.base.basedb.model.TLog;
 
 
-/**
- * 日志查询
- * @author wangxiaowei
- *
- */
 public interface TLogDbService {
 	
 	List<TLog> getTLogList(Map<String,Object> map);

@@ -9,11 +9,6 @@ import com.lch.base.basedb.model.TUser;
 import com.lch.web.bean.UserInfoBean;
 import com.lch.web.exception.PayPluginException;
 
-/**
- *  账户
- * @author LinChunqiu
- *
- */
 public interface UserService {
 	
 	/**

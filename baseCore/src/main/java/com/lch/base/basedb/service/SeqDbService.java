@@ -2,12 +2,6 @@ package com.lch.base.basedb.service;
 
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * 主键生成器
- * 
- * @author LinChunqiu
- * 
- */
 public interface SeqDbService {
 
 	/**

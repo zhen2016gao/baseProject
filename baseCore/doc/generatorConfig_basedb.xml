@@ -8,7 +8,7 @@
   
     <context id="MysqlTables" targetRuntime="MyBatis3">  
 		<plugin type="org.mybatis.generator.plugins.MapperConfigPlugin">
-            <property name="targetPackage" value="com.buybal.base.basedb.data"/>
+            <property name="targetPackage" value="com.lch.base.basedb.data"/>
 			<property name="targetProject" value="baseCore/src/main/resources"/>
         </plugin>
 		
@@ -24,16 +24,16 @@
             <property name="forceBigDecimals" value="false" />  
         </javaTypeResolver>  
   
-        <javaModelGenerator targetPackage="com.buybal.base.basedb.model" targetProject="baseCore/src/main/java">
+        <javaModelGenerator targetPackage="com.lch.base.basedb.model" targetProject="baseCore/src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
   
-         <sqlMapGenerator targetPackage="com.buybal.base.basedb.data" targetProject="baseCore/src/main/resources">
+         <sqlMapGenerator targetPackage="com.lch.base.basedb.data" targetProject="baseCore/src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator> 
   
-         <javaClientGenerator targetPackage="com.buybal.base.basedb.data" targetProject="baseCore/src/main/java" type="XMLMAPPER">
+         <javaClientGenerator targetPackage="com.lch.base.basedb.data" targetProject="baseCore/src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator> 
   
@@ -43,8 +43,23 @@
 		<table schema="" tableName="T_USER_ROLE"></table>
 		<table schema="" tableName="t_seq"></table>
 		<table schema="" tableName="t_log"></table>
-	
-	
+		<table schema="" tableName="t_resource"></table>
+		<table schema="" tableName="t_role_resource"></table>
+		<table schema="" tableName="t_url"></table>
+		<table schema="" tableName="t_role_url"></table>
+		<table schema="" tableName="t_oper"></table>
+		<table schema="" tableName="t_role_oper"></table>
+		<table schema="" tableName="QRTZ_FIRED_TRIGGERS"></table>
+		<table schema="" tableName="QRTZ_PAUSED_TRIGGER_GRPS"></table>
+		<table schema="" tableName="QRTZ_SCHEDULER_STATE"></table>
+		<table schema="" tableName="QRTZ_LOCKS"></table>
+		<table schema="" tableName="QRTZ_SIMPLE_TRIGGERS"></table>
+		<table schema="" tableName="QRTZ_SIMPROP_TRIGGERS"></table>
+		<table schema="" tableName="QRTZ_CRON_TRIGGERS"></table>
+		<table schema="" tableName="QRTZ_BLOB_TRIGGERS"></table>
+		<table schema="" tableName="QRTZ_TRIGGERS"></table>
+		<table schema="" tableName="QRTZ_JOB_DETAILS"></table>
+		<table schema="" tableName="QRTZ_CALENDARS"></table>
   
  
   

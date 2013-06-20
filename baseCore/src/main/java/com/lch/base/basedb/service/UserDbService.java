@@ -5,11 +5,6 @@ import java.util.Map;
 
 import com.lch.base.basedb.model.TUser;
 
-/**
- * 账户表
- * @author LinChunqiu
- *
- */
 public interface UserDbService {
 	/**
 	 * 添加新账户

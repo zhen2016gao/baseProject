@@ -85,7 +85,7 @@
 							<a href="<c:url value="/main.html"/>" style="color: #fff; font-size: 22px; font-weight: bold; text-decoration: none">管理系统</a>
 						</div>
 						<div style="color: #fff">
-							<a href="<c:url value="/main.html"/>" style="color: #fff; text-decoration: none">以最专业的态度做最专业的金融证券产品</a>
+							<a href="<c:url value="/main.html"/>" style="color: #fff; text-decoration: none">Quartz Manager</a>
 						</div>
 					</td>
 					<td style="padding-right: 5px; text-align: right; vertical-align: bottom;">
@@ -101,6 +101,12 @@
 
 	<div data-options="region:'west',split:true,title:'功能导航'" style="width: 250px; padding: 5px;">
 		<ul class="easyui-tree">
+		<li iconCls="icon-datagrid"><span>Quaztr管理</span>
+				<ul>
+					<li iconCls="icon-gears"><a href="#" onclick="open1('信息配置', '<c:url value="/msgConfig.html"/>')">信息配置</a></li>
+					<li iconCls="icon-gears"><a href="#" onclick="open1('作业管理', '<c:url value="/jobManager.html"/>')">作业管理</a></li>
+				</ul>
+			</li>
 			<sec:authorize access="hasRole('ROLE_admin')">
 			<li iconCls="icon-base"><span>账户管理</span>
 				<ul>

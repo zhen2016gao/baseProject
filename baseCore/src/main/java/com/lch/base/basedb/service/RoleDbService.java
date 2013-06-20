@@ -5,11 +5,6 @@ import java.util.List;
 import com.lch.base.basedb.model.TRole;
 
 
-/**
- * 角色表
- * @author LinChunqiu
- *
- */
 public interface RoleDbService {
 	/**
 	 * 查询全部的角色信息

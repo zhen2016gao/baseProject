@@ -35,7 +35,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath*:business.xml, classpath*:security.xml, classpath*:service.xml, classpath*:dao.xml
+            classpath*:business.xml, classpath*:security.xml, classpath*:service.xml, classpath*:dao.xml ,classpath*:quartz.xml
         </param-value>
     </context-param>
     <context-param>

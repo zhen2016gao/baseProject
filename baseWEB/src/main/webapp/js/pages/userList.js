@@ -140,8 +140,6 @@
         		$("#rolespan").html(role);
         	}
         });
-        $('#addUserDiv').dialog('open').dialog('setTitle','添加账户');  
-        $('#addUserFm').form('clear');  
         $("#defalutCheck").prop("checked",true);
     } 
 	
