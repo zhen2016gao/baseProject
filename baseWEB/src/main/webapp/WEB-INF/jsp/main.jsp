@@ -103,8 +103,8 @@
 		<ul class="easyui-tree">
 		<li iconCls="icon-datagrid"><span>Quaztr管理</span>
 				<ul>
-					<li iconCls="icon-gears"><a href="#" onclick="open1('信息配置', '<c:url value="/msgConfig.html"/>')">信息配置</a></li>
-					<li iconCls="icon-gears"><a href="#" onclick="open1('作业管理', '<c:url value="/jobManager.html"/>')">作业管理</a></li>
+					<li iconCls="icon-gears"><a href="#" onclick="open1('作业管理', '<c:url value="/jobManager.html"/>')">本地作业管理</a></li>
+					<li iconCls="icon-gears"><a href="#" onclick="open1('远程作业管理', '<c:url value="/remotoJobManager.html"/>')">远程作业管理</a></li>
 				</ul>
 			</li>
 			<sec:authorize access="hasRole('ROLE_admin')">

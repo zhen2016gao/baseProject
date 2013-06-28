@@ -35,4 +35,13 @@
 		<property name="quartzScheduler" ref="quartzScheduler"/>
 		<property name="qrtzJobDetailsDbService" ref="qrtzJobDetailsDbService"/>
 	</bean>
+	
+	<bean id="quartzJMXAdapter" class="com.lch.web.service.impl.QuartzJMXAdapterImpl"/>
+	
+	<bean id="remoteQuartzManagerService" class="com.lch.web.service.impl.RemoteQuartzManagerServiceImpl">
+		<property name="quartzJMXAdapter" ref="quartzJMXAdapter"/>
+	</bean>
+	
+	
+	
 </beans>
